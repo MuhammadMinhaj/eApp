@@ -4,8 +4,7 @@ import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 
 const AlertIcon = props => <Icon {...props} name="alert-circle-outline" />;
 
-const PasswordField = () => {
-  const [value, setValue] = React.useState('');
+const PasswordField = ({ value, setValue, errTxt, placeholder, label }) => {
   const [secureTextEntry, setSecureTextEntry] = React.useState(true);
 
   const toggleSecureEntry = () => {
@@ -22,9 +21,7 @@ const PasswordField = () => {
     return (
       <View style={styles.captionContainer}>
         {AlertIcon(styles.captionIcon)}
-        <Text style={styles.captionText}>
-          Should contain at least 8 symbols
-        </Text>
+        {errTxt && <Text style={styles.captionText}>{errTxt}</Text>}
       </View>
     );
   };
@@ -32,12 +29,14 @@ const PasswordField = () => {
   return (
     <Input
       value={value}
-      label="Password"
-      placeholder="Place your Text"
+      label={label}
+      placeholder={placeholder}
       caption={renderCaption}
       accessoryRight={renderIcon}
+      accessoryLeft={<Icon name="lock-outline" />}
       secureTextEntry={secureTextEntry}
       onChangeText={nextValue => setValue(nextValue)}
+      size="large"
     />
   );
 };
@@ -57,7 +56,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '400',
     fontFamily: 'opensans-regular',
-    color: '#8F9BB3',
+    color: '#dd0808',
   },
 });
 export default PasswordField;

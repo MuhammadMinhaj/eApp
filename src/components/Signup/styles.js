@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   form: {
-    flex: 2,
+    flex: 5,
   },
   footer: {
     alignItems: 'center',

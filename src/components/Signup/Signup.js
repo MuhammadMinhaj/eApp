@@ -5,7 +5,7 @@ import Brand from '../Common/Brand/Brand';
 import Form from './Form';
 import styles from './styles';
 
-const SignIn = ({ navigation }) => {
+const SignUp = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.brand}>
@@ -20,11 +20,11 @@ const SignIn = ({ navigation }) => {
           </Text>
         </Text>
         <Text category="h6" status="basic">
-          SIGN IN
+          SIGN UP
         </Text>
       </View>
     </View>
   );
 };
 
-export default SignIn;
+export default SignUp;
